@@ -1,0 +1,55 @@
+<div class="container">
+  <h3 class="text-center">Hello {{ title }}</h3>
+  <input type="text" value="{{ title }}" readonly />
+  <div class="container">
+    <div class="card text-left">
+      <img class="card-img-top" src="{{ renderPhim().img }}" alt="img" />
+      <div class="card-body">
+        <h4 class="card-title">{{ renderPhim().name }}</h4>
+        <p class="card-text">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus,
+          ducimus suscipit officia inventore fuga temporibus?
+        </p>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <!-- propertyp binding -->
+  <h3 [innerHTML]="'Hello ' + title"></h3>
+  <input #inputTitle type="text" [value]="title" />
+  <br />
+  <button (click)="changeTitle(inputTitle.value)">Change title</button>
+
+  <br />
+  <br />
+  <br />
+
+  <!-- TwowayBinding -->
+  <input [(ngModel)]="title" type="text" />
+  <br />
+  <br />
+  <br />
+  <input #text (keyup)="changeTitle(text.value)" type="text" />
+
+  <ul>
+    <li>
+      Tên SP:
+      <input
+        class="form-control"
+        type="text"
+        [(ngModel)]="thongTinSanPham.tenSP"
+      />
+      <br />
+      <br />
+      Số lượng SP:
+      <input
+        class="form-control"
+        type="text"
+        [(ngModel)]="thongTinSanPham.soLuong"
+      />
+      <br />
+      <br />
+      Thành tiền: {{ thongTinSanPham.soLuong * thongTinSanPham.donGia }}
+    </li>
+  </ul>
+</div>
